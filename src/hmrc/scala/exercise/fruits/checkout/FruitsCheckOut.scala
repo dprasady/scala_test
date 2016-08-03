@@ -54,8 +54,9 @@ class FruitsCheckOut(orderFruitArray: Array[String]) {
 //This client program used to compute the price of the fruits
 //there are 7 tests
 // 1 to 5 tests are for step 1
-// 6 to 7 tests are for offers test
+// 6 to 9 tests are for offers test
 object FruitsCheckOut {
+
   def main(args: Array[String]) {
     //test 1
     val fruitsArray = Array("Apple", "Apple", "Orange", "Apple")
@@ -65,52 +66,55 @@ object FruitsCheckOut {
 
     //test 2 //invalid mixed input
     val fruitsArray1 = Array("sadsad", "Apple")
-    val checkout1 = new FruitsCheckOut(fruitsArray1)
+    val checkout1 = FruitsCheckOut(fruitsArray1)
     val totalValue1 = checkout1.calculatePrice(false)
     println(totalValue1) //calculate apple price only 0.6
 
     //test 3 //only apples
     val fruitsArray2 = Array("Apple", "Apple")
-    val checkout2 = new FruitsCheckOut(fruitsArray2)
+    val checkout2 = FruitsCheckOut(fruitsArray2)
     val totalValue2 = checkout2.calculatePrice(false)
     println(totalValue2) //£1.2
 
     //test 4 //only oranges
     val fruitsArray3 = Array("Orange", "Orange")
-    val checkout3 = new FruitsCheckOut(fruitsArray3)
+    val checkout3 = FruitsCheckOut(fruitsArray3)
     val totalValue3 = checkout3.calculatePrice(false)
     println(totalValue3) //£0.5
 
 
     //test 5 //invalid input
     val fruitsArray4 = Array("sadsad", "asdasd")
-    val checkout4 = new FruitsCheckOut(fruitsArray4)
+    val checkout4 = FruitsCheckOut(fruitsArray4)
     val totalValue4 = checkout4.calculatePrice(false)
     println(totalValue4) //shold return 0.0
 
     ///////////////////**************Step 2 OFFERS PRICES TESTING *************************///////////////////////////
     //test 6
     val fruitsArray5 = Array("Apple", "Apple", "Orange", "Apple")
-    val checkout5 = new FruitsCheckOut(fruitsArray5)
+    val checkout5 = FruitsCheckOut(fruitsArray5)
     val totalValue5 = checkout5.calculatePrice(true)
     println(totalValue5) //£2.65
 
     //test 7
     val fruitsArray6 = Array("Orange", "Orange", "Orange", "Apple")
-    val checkout6 = new FruitsCheckOut(fruitsArray6)
+    val checkout6 = FruitsCheckOut(fruitsArray6)
     val totalValue6 = checkout6.calculatePrice(true)
     println(totalValue6) //£1.6
 
     //test 8
     val fruitsArray7 = Array("Orange", "Apple")
-    val checkout7 = new FruitsCheckOut(fruitsArray7)
+    val checkout7 = FruitsCheckOut(fruitsArray7)
     val totalValue7 = checkout7.calculatePrice(true)
-    println(totalValue7) //£1.6
+    println(totalValue7) //£0.85
 
     //test 9
-    val fruitsArray8 = Array("sdfsdfsdf")
-    val checkout8 = new FruitsCheckOut(fruitsArray8)
+    val fruitsArray8: Array[String] = Array("sdfsdfsdf")
+    val checkout8 = FruitsCheckOut(fruitsArray8)
     val totalValue8 = checkout8.calculatePrice(true)
     println(totalValue8) //£0.0 Invalid input
   }
+
+  def apply(orderFruitArray: Array[String]): FruitsCheckOut = new FruitsCheckOut(orderFruitArray)
+
 }
