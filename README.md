@@ -4,6 +4,5 @@ IDE : IntelliJ
 
 
 #######################################
-I have created sample tests under the FruitsCheckOut companion object
-
-Please run it
+I have created 9 sample tests under the FruitsCheckOut companion object
+Please run it for different scenarios
